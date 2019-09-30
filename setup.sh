@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ ! -d /opt ]; then
   mkdir /opt
 fi
@@ -10,7 +11,7 @@ else
   if [[ "${RESPONSE}" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
       exit 0
   else
-  rm -f /opt/monitor.sh &&  wget https://raw.githubusercontent.com/SagnikSRHUSE/SSMCS/master/monitor.sh -O /opt/monitor.sh
+    rm -f /opt/monitor.sh &&  wget https://raw.githubusercontent.com/SagnikSRHUSE/SSMCS/master/monitor.sh -O /opt/monitor.sh
 fi
 
 crontab -l | { cat; echo "* * * * * /opt/monitor.sh $1"; } | crontab -
