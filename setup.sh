@@ -9,7 +9,8 @@ else
   read RESPONSE
   if [[ "${RESPONSE}" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
       exit 0
-  fi
+  else
+  rm -f /opt/monitor.sh &&  wget https://raw.githubusercontent.com/SagnikSRHUSE/SSMCS/master/monitor.sh -O /opt/monitor.sh
 fi
 
 crontab -l | { cat; echo "* * * * * /opt/monitor.sh $1"; } | crontab -
