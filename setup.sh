@@ -11,7 +11,7 @@ if [ ! -f /opt/monitor.sh ]; then
 else
   echo "/opt/monitor.sh already exists, are you sure you want to continue?"
   read RESPONSE
-  if [[ "${RESPONSE}" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
+  if [[ "${RESPONSE}" =~ ^([nN][oO]|[nN])+$ ]]; then
       exit 0
   else
     rm -f /opt/monitor.sh &&  wget $REPO_URL/monitor.sh -O /opt/monitor.sh
